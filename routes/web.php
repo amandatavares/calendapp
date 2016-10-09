@@ -39,4 +39,4 @@ Route::post('/usuario/create','UserController@create');
 Route::post('/usuario/show/{id}','UserController@show');
 Route::post('/usuario/update/{id}','UserController@update');
 Route::post('/usuario/delete/{id}','UserController@delete');
-
+Route::post('/usuario/logar','UserController@logar');
