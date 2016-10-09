@@ -28,7 +28,7 @@ Route::post('/disciplina/show/{id}','DisciplinaController@show');
 Route::post('/disciplina/update/{id}','DisciplinaController@update');
 Route::post('/disciplina/delete/{id}','DisciplinaController@delete');
 
-Route::get('/atividade/','AtividadeController@listAll');
+Route::get('/atividade/{id}','AtividadeController@listAll');
 Route::post('/atividade/create','AtividadeController@create');
 Route::post('/atividade/show/{id}','AtividadeController@show');
 Route::post('/atividade/update/{id}','AtividadeController@update');
