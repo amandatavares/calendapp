@@ -11,9 +11,11 @@ use App\Aluno as Aluno;
 
 class UserController extends Controller
 {
+
 	public function logar(Request $req){
-		$aluno = Aluno::where(["matricula"=>$req->matricula])->get() ;
-		if($aluno){
+		header("Access-Control-Allow-Origin: *");
+		$aluno = Aluno::where(["matricula"=>$req->matricula])->get();
+		if($aluno->count()>0){
 			$aluno_id = $aluno[0]->id;
 
 			if(User::where(["alunos_id"=>$aluno_id])->where(["password"=>$req->password]) ){
@@ -21,17 +23,20 @@ class UserController extends Controller
 			}else{
 				return response()->json(array("logado"=>false));
 			}
+
 		}else {
 			return response()->json(array("logado"=>false));
 		}
 	}
 	public function show(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		return response()->json(User::with('aluno')->find($req->id));
 	}
 
 	public function create(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		$aluno = new Aluno();
 		$aluno->nome = $req->nome;
 		$aluno->matricula = $req->matricula;
@@ -51,6 +56,7 @@ class UserController extends Controller
 
 	public function update(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		$user = User::find($req->id);
 		$user->password = $req->password;
 
@@ -59,6 +65,7 @@ class UserController extends Controller
 
 	public function delete(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		return response()->json(User::find($req->id)->delete());
 	}
 

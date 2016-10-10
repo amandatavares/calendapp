@@ -12,16 +12,19 @@ class AtividadeController extends Controller
 {
     public function listAll(Request $req)
 	{
+    header("Access-Control-Allow-Origin: *");
 		return response()->json(Atividade::where(['alunos_id'=>$req->id])->with('disciplina','aluno')->get());
 	}
 
     public function show(Request $req)
 	{
+    header("Access-Control-Allow-Origin: *");
 		return response()->json(Atividade::with('disciplina','aluno')->find($req->id));
 	}
 
 	public function create(Request $req)
 	{
+    header("Access-Control-Allow-Origin: *");
 		$atividade = new Atividade();
 		$atividade->alunos_id = $req->alunos_id;
 		$atividade->disciplinas_id = $req->disciplinas_id;
@@ -34,6 +37,7 @@ class AtividadeController extends Controller
 
 	public function update(Request $req)
 	{
+    header("Access-Control-Allow-Origin: *");
 		$atividade = Atividade::find($req->id);
 		$atividade->alunos_id = $req->alunos_id;
 		$atividade->disciplinas_id = $req->disciplinas_id;
@@ -46,6 +50,7 @@ class AtividadeController extends Controller
 
 	public function delete(Request $req)
 	{
+    header("Access-Control-Allow-Origin: *");
 		return response()->json(Atividade::find($req->id)->delete());
 	}
 }
