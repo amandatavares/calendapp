@@ -11,10 +11,9 @@ use App\Aluno as Aluno;
 
 class UserController extends Controller
 {
-	// public function __construct(){
-	// 	header("Access-Control-Allow-Origin: *");
-	// }
+
 	public function logar(Request $req){
+		header("Access-Control-Allow-Origin: *");
 		$aluno = Aluno::where(["matricula"=>$req->matricula])->get() ;
 		if($aluno){
 			$aluno_id = $aluno[0]->id;
@@ -30,11 +29,13 @@ class UserController extends Controller
 	}
 	public function show(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		return response()->json(User::with('aluno')->find($req->id));
 	}
 
 	public function create(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		$aluno = new Aluno();
 		$aluno->nome = $req->nome;
 		$aluno->matricula = $req->matricula;
@@ -54,6 +55,7 @@ class UserController extends Controller
 
 	public function update(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		$user = User::find($req->id);
 		$user->password = $req->password;
 
@@ -62,6 +64,7 @@ class UserController extends Controller
 
 	public function delete(Request $req)
 	{
+		header("Access-Control-Allow-Origin: *");
 		return response()->json(User::find($req->id)->delete());
 	}
 
