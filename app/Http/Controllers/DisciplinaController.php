@@ -13,7 +13,6 @@ class DisciplinaController extends Controller
 	public function listAll()
 	{
 		header("Access-Control-Allow-Origin: *");
-		header('Access-Control-Allow-Methods: GET');
 		return response()->json(Disciplina::all());
 	}
 

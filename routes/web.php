@@ -22,7 +22,7 @@ Route::post('/aluno/delete/{id}','AlunoController@delete');
 Route::post('aluno/matricular','AlunoController@matricDisciplina');
 Route::post('aluno/matricula/{id}','AlunoController@showDisciplina');
 
-Route::get('/disciplina/','DisciplinaController@listAll');
+Route::post('/disciplina/','DisciplinaController@listAll');
 Route::post('/disciplina/create','DisciplinaController@create');
 Route::post('/disciplina/show/{id}','DisciplinaController@show');
 Route::post('/disciplina/update/{id}','DisciplinaController@update');
