@@ -11,6 +11,9 @@ use App\Aluno as Aluno;
 
 class UserController extends Controller
 {
+	public function __construct(){
+		header("Access-Control-Allow-Origin: *");
+	}
 	public function logar(Request $req){
 		$aluno = Aluno::where(["matricula"=>$req->matricula])->get() ;
 		if($aluno){
