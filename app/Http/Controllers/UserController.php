@@ -14,8 +14,8 @@ class UserController extends Controller
 
 	public function logar(Request $req){
 		header("Access-Control-Allow-Origin: *");
-		$aluno = Aluno::where(["matricula"=>$req->matricula])->get() ;
-		if($aluno){
+		$aluno = Aluno::where(["matricula"=>$req->matricula])->get();
+		if($aluno->count()>0){
 			$aluno_id = $aluno[0]->id;
 
 			if(User::where(["alunos_id"=>$aluno_id])->where(["password"=>$req->password]) ){
@@ -23,6 +23,7 @@ class UserController extends Controller
 			}else{
 				return response()->json(array("logado"=>false));
 			}
+
 		}else {
 			return response()->json(array("logado"=>false));
 		}
