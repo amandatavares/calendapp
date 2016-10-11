@@ -28,13 +28,13 @@ Route::post('/disciplina/show/{id}','DisciplinaController@show');
 Route::post('/disciplina/update/{id}','DisciplinaController@update');
 Route::post('/disciplina/delete/{id}','DisciplinaController@delete');
 
-Route::get('/atividade/{id}','AtividadeController@listAll');
+Route::post('/atividade/{id}','AtividadeController@listAll');
 Route::post('/atividade/create','AtividadeController@create');
 Route::post('/atividade/show/{id}','AtividadeController@show');
 Route::post('/atividade/update/{id}','AtividadeController@update');
 Route::post('/atividade/delete/{id}','AtividadeController@delete');
 
-Route::get('/usuario/','UserController@listAll');
+Route::post('/usuario/','UserController@listAll');
 Route::post('/usuario/create','UserController@create');
 Route::post('/usuario/show/{id}','UserController@show');
 Route::post('/usuario/update/{id}','UserController@update');
